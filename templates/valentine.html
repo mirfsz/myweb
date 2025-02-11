@@ -22,19 +22,19 @@
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             border-radius: 30px;
-            padding: 40px 30px;
+            padding: 30px 25px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             width: 90%;
             max-width: 600px;
             position: relative;
             overflow: visible;
-            min-height: 400px;
+            min-height: 350px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
         }
 
         h1 {
@@ -120,15 +120,15 @@
             display: none;
             opacity: 0;
             transform: translateY(20px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-            margin-top: 40px;
+            transition: opacity 0.5s ease;
+            margin-top: 20px;
             font-size: 1.5em;
             color: white;
         }
 
         #message.show {
             opacity: 1;
-            transform: translateY(0);
+            transform: none;
         }
 
         .message-content {
@@ -138,7 +138,9 @@
             margin-top: 20px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            animation: messageAppear 0.8s ease-out forwards;
+            animation: none;
+            opacity: 1;
+            transform: none;
         }
 
         .message-content p {
@@ -279,24 +281,91 @@
             }
         }
 
-        @media (max-height: 600px) and (orientation: landscape) {
+        @media (max-height: 500px) {
             .container {
-                min-height: 300px;
+                min-height: 280px;
                 padding: 20px;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 1.6em;
+                margin-bottom: 5px;
             }
 
             .hearts {
-                font-size: 2.5em;
-                margin: 10px 0;
+                font-size: 2em;
+                margin: 5px 0;
             }
 
             .btn-container {
-                height: 100px;
+                height: 80px;
                 margin-top: 10px;
             }
 
+            .message-content {
+                padding: 15px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .commitment-text {
+                font-size: 1em !important;
+                margin-bottom: 10px !important;
+                width: 100%;
+            }
+
+            .promise-list {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+                margin: 10px auto;
+            }
+
             .promise-list p {
-                margin: 8px 0;
+                margin: 5px 0;
+                font-size: 0.9rem;
+                gap: 8px;
+            }
+
+            .emoji {
+                font-size: 1.1em;
+            }
+
+            .final-note {
+                width: 100%;
+                margin-top: 10px !important;
+                font-size: 1em !important;
+            }
+
+            .success-title {
+                font-size: 1.3em;
+                margin-bottom: 15px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+
+            .message-content {
+                padding: 15px 10px;
+            }
+
+            .promise-list p {
+                font-size: 0.85rem;
             }
         }
 
@@ -378,14 +447,14 @@
             <div class="message-content">
                 <p class="commitment-text">Well well well... Looks like you're stuck with this Shrek now! 🤪</p>
                 <div class="promise-list">
-                    <p><span class="emoji">🧟‍♂️</span> Endless Shrek movie marathons</p>
-                    <p><span class="emoji">🍿</span> More shows to binge together</p>
-                    <p><span class="emoji">🍕</span> Getting fat with good food</p>
-                    <p><span class="emoji">💨</span> Sharing smelly farts forever</p>
-                    <p><span class="emoji">🦥</span> Being lazy together 24/7</p>
-                    <p><span class="emoji">🐸</span> Your personal fat Shrek always</p>
+                    <p><span class="emoji">🧟‍♂️</span> Endless Shrek movies</p>
+                    <p><span class="emoji">🍿</span> More shows together</p>
+                    <p><span class="emoji">🍕</span> Getting fat together</p>
+                    <p><span class="emoji">💨</span> Smelly farts forever</p>
+                    <p><span class="emoji">🦥</span> Being lazy 24/7</p>
+                    <p><span class="emoji">🐸</span> Your fat Shrek always</p>
                 </div>
-                <p class="final-note">No refunds or returns accepted! 💚</p>
+                <p class="final-note">No refunds or returns! ��</p>
             </div>
         </div>
     </div>
@@ -510,7 +579,7 @@
             { text: "Like... this smelly Shrek? 🤔", scale: 1.1 },
             { text: "You'll regret this... 🤨", scale: 1.2 },
             { text: "Ready for endless dad jokes? 💨", scale: 1.3 },
-            { text: "Last chance to escape! ��‍♀️", scale: 1.4 }
+            { text: "Last chance to escape! ‍♀️", scale: 1.4 }
         ];
 
         function startConfirmation() {
